@@ -1,0 +1,48 @@
+#container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+#container .row.logo {
+  text-align: center;
+}
+#container .row.logo img {
+  margin: 0 auto;
+}
+#container .row.form h2 {
+  margin: 20px auto;
+  text-align: center;
+}
+#container .row.form .signup-form {
+  margin-top: 20px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+#container .row.form .signup-form input {
+  /*width: 95%;*/
+
+  margin-bottom: 15px;
+}
+#container .row.form .signup-form ul.text-error {
+  margin-left: 0;
+  margin-bottom: 15px;
+}
+#container .row.form .signup-form .controls {
+  margin-left: 100px;
+}
+#container .row.form .signup-form label {
+  width: 80px;
+}
+#container .row.form .signup-form .invalid {
+  margin-bottom: 15px;
+}
+@media (max-width: 480px) {
+  #container .row.form .signup-form label {
+    text-align: right;
+    float: left;
+    padding-top: 5px;
+  }
+  #container .row.form .signup-form input {
+    width: auto;
+  }
+}

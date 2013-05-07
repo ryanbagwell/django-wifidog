@@ -1,0 +1,66 @@
+#container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-top: 20px;
+
+    .row.logo {
+        text-align: center;
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    .row.form {
+
+        h2 {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .signup-form {
+            margin-top: 20px;
+            max-width: 320px;
+            margin: 0 auto;
+
+            input {
+                /*width: 95%;*/
+                margin-bottom: 15px;
+            }
+
+            ul.text-error {
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+
+            .controls {
+                margin-left: 100px;
+            }
+
+            label {
+                width: 80px;
+            }
+
+            .invalid {
+                margin-bottom: 15px;
+            }
+
+            @media (max-width: 480px) {
+
+
+                label {
+                    text-align: right;
+                    float: left;
+                    padding-top: 5px;
+                }
+
+                input {
+                    width: auto;
+                }
+
+            }
+
+        }
+
+    }
+
+}

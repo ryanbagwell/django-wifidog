@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Madworks Coworking WIFI Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifiauth/bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifiauth/bootstrap/css/bootstrap-responsive.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifiauth/css/wifiauth.css" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}wifiauth/bootstrap/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div class="row logo">
+            <div class="span12">
+                <img src="{{ STATIC_URL }}wifiauth/img/logo.madworks.320px.png" />
+            </div>
+        </div>
+
+        <div class="form row">
+            <div class="span12">
+
+                <h2>Please log in</h2>
+
+
+                <form class="form-horizontal signup-form" method="post" action="{% url wifi-login %}">
+
+                    {% if invalid %}
+                    <div class="control-group">
+                        <div class="controls invalid text-error">
+                            {{ invalid_message }}
+                        </div>
+                    </div>
+                    {% endif %}
+
+
+                    <fieldset>
+
+                    {% for field in form %}
+
+                        {% if not field.is_hidden %}
+
+                            {% include 'includes/bootstrap_field.html' with field=field %}
+
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+
+                    {% endfor %}
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button>Submit</button>
+                        </div>
+                    </div>
+                    {% csrf_token %}
+                    </fieldset>
+                </form>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

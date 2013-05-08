@@ -3,13 +3,12 @@
 <head>
     <title>Madworks Coworking WIFI Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifiauth/bootstrap/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifiauth/bootstrap/css/bootstrap-responsive.min.css" />
-    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifiauth/css/wifiauth.css" />
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifidog/bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifidog/bootstrap/css/bootstrap-responsive.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}wifidog/css/wifidog.css" />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}wifiauth/bootstrap/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="{{ STATIC_URL }}wifidog/bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -17,18 +16,15 @@
 
     <div id="container">
 
-        <div class="row logo">
-            <div class="span12">
-                <img src="{{ STATIC_URL }}wifiauth/img/logo.madworks.320px.png" />
-            </div>
-        </div>
+        {% block before_form %}
+        {% endblock %}
 
         <div class="form row">
             <div class="span12">
 
                 <h2>Please log in</h2>
 
-
+                {% block form %}
                 <form class="form-horizontal signup-form" method="post" action="{% url wifi-login %}">
 
                     {% if invalid %}
@@ -62,9 +58,7 @@
                     {% csrf_token %}
                     </fieldset>
                 </form>
-
-
-
+                {% endblock %}
 
             </div>
         </div>

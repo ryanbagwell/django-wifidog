@@ -15,8 +15,6 @@ import logging
 
 
 
-
-
 class BaseView(View):
 
     def post(self, request, *args, **kwargs):
@@ -93,7 +91,7 @@ class WIFIAuthView(TokenMixin, BaseView):
 
 
 class WIFILoginView(TokenMixin, FormView):
-    template_name="wifiauth/login.html"
+    template_name="wifidog/login.html"
     form_class = LoginForm
 
     """ The request to the login page """

@@ -9,4 +9,7 @@ setup(name='Django WIFIDog',
       author_email='ryan@ryanbagwell.com',
       url='https://github.com/ryanbagwell/django-wifidog',
       packages=['wifidog'],
+      install_requires=[
+        'django-tastypie == 0.9.15',
+      ]
      )

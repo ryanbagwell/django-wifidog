@@ -17,11 +17,15 @@ class WIFIAuthRequest(models.Model):
     ip = models.CharField(max_length=255)
     mac = models.CharField(max_length=255)
     token = models.CharField(max_length=255)
-    incoming = models.IntegerField()
-    outgoing = models.IntegerField()
+    incoming = models.IntegerField(default=0)
+    incoming_use = models.IntegerField(default=0,
+        help_text="Packets received since the last update")
+    outgoing = models.IntegerField(default=0)
+    outgoing_use = models.IntegerField(default=0, help_text="Packets sent since the last request")
     result = models.IntegerField(default=0)
     request_time = models.DateTimeField(auto_now=True,
         auto_now_add=True)
+
 
     def save(self, *args, **kwargs):
 
@@ -31,7 +35,18 @@ class WIFIAuthRequest(models.Model):
         except:
             pass
 
+        try:
+            last = WIFIAuthRequest.objects.filter(
+                user=self.user).order_by('-request_time')[0]
+            self.incoming_use = self.incoming - last.incoming
+            self.outgoing_use = self.outgoing - last.outgoing
+        except:
+            self.incoming_use = self.incoming
+            self.outgoing_use = self.outgoing
+
+
         super(WIFIAuthRequest, self).save(*args, **kwargs)
+
 
 
 class Token(models.Model):

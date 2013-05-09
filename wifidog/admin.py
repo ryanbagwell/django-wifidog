@@ -12,9 +12,9 @@ admin.site.register(WIFIPing, WIFIPingAdmin)
 
 class WIFIAuthRequestAdmin(admin.ModelAdmin):
 
-    readonly_fields = ['user', 'stage', 'ip', 'mac', 'token', 'incoming', 'outgoing', 'result', 'request_time']
+    readonly_fields = ['user', 'stage', 'ip', 'mac', 'token', 'incoming', 'incoming_use', 'outgoing', 'outgoing_use', 'result', 'request_time']
 
-    list_display = ['user', 'stage', 'ip', 'mac', 'token', 'incoming', 'outgoing', 'result', 'request_time']
+    list_display = ['user', 'stage', 'ip', 'mac', 'token', 'incoming', 'incoming_use', 'outgoing', 'outgoing_use', 'result', 'request_time']
 
     ordering = ['-request_time']
 
